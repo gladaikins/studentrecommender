@@ -188,7 +188,7 @@ def quiz():
                            )
 
 model = load_model('modeling/interest_quiz/firstmodel.pkl')
-job_df = pd.read_csv('../data/abt_ver1.csv')
+job_df = pd.read_csv('studentrecommender/data/abt_ver1.csv')
 
 
 if __name__ == '__main__':
