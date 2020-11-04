@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import json
 import sys
-import cPickle as pickle
+import pickle as pickle
 import requests
 import final_questions as fq
 app = Flask(__name__)
@@ -125,6 +125,40 @@ def index():
     return render_template('index.html')
 
 
+
+@app.route('/login', methods=['GET'])
+def login():
+    """
+    Returns the login page of the project in response to a GET request
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    rendered login.html page
+    """
+    return render_template('login.html')
+
+
+
+@app.route('/signup', methods=['GET'])
+def signup():
+    """
+    Returns the sign up page of the project in response to a GET request
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    rendered signup.html page
+    """
+    return render_template('signup.html')
+
+
 @app.route('/score', methods=['POST'])
 def score():
     """
@@ -187,8 +221,8 @@ def quiz():
                            income_desire_questions=fq.income_desire_questions
                            )
 
-model = load_model('modeling/interest_quiz/firstmodel.pkl')
-job_df = pd.read_csv('studentrecommender/data/abt_ver1.csv')
+# model = load_model('/modeling/interest_quiz/firstmodel.pkl')
+job_df = pd.read_csv("C:\\Users\\asus\\Desktop\\studentrecommender\\studentrecommender\\data\\abt_ver1.csv")
 
 
 if __name__ == '__main__':

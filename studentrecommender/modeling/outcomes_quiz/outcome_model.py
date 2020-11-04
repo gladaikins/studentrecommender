@@ -1,7 +1,8 @@
 from __future__ import division
 import pandas as pd
 import numpy as np
-import outcome_cleaning as cl
+from modeling.outcomes_quiz import outcome_model as cl
+# import outcome_cleaning as cl
 import sys
 import os
 root = os.path.dirname(os.path.abspath(__file__))
