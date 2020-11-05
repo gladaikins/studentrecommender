@@ -23,9 +23,9 @@ def load_model(filename):
     Returns
     -------
     model:
-        Trained sklearn random forest model
+        Trained sklearn KNN model
     """
-    with open(filename) as f:
+    with open(filename, 'rb') as f:
         model = pickle.load(f)
     return model
 
@@ -180,6 +180,7 @@ def score():
     int_answers, risk_ans, inc_ans = (quiz_answers[0],
                                       quiz_answers[1],
                                       quiz_answers[2])
+    print(int_answers)
     answer_array = parse_interest_ans(int_answers)
     risk_score = calculate_scores(risk_ans)
     inc_score = calculate_scores(inc_ans)
@@ -221,8 +222,8 @@ def quiz():
                            income_desire_questions=fq.income_desire_questions
                            )
 
-# model = load_model('/modeling/interest_quiz/firstmodel.pkl')
-job_df = pd.read_csv("C:\\Users\\asus\\Desktop\\studentrecommender\\studentrecommender\\data\\abt_ver1.csv")
+model = load_model('modeling/knn.pkl')
+job_df = pd.read_csv("data/cleaned_outcome.csv")
 
 
 if __name__ == '__main__':
